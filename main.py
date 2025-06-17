@@ -1,25 +1,22 @@
 import streamlit as st
 
-st.set_page_config(page_title="요리 레시피 모음", layout="centered")
+st.set_page_config(page_title="게임 장르별 공략법", layout="centered")
 
-st.title("🍽 요리 레시피 모음")
+st.title("🎮 게임 장르별 공략법")
 
-recipe_data = {
-    '서양 요리': [
-        {'title': '스파게티 볼로네제', 'desc': '다진 소고기와 토마토소스를 사용한 파스타입니다.'},
-        {'title': '치킨 알프레도', 'desc': '크림소스와 닭고기를 곁들인 부드러운 파스타 요리입니다.'},
-        {'title': '시저 샐러드', 'desc': '로메인과 파르메산 치즈, 크루통이 들어간 고전적인 샐러드.'}
+game_guides = {
+    'RPG': [
+        {'name': '엘든 링', 'guide': '보스전은 패턴 분석이 핵심이며, 회피 타이밍을 익히는 것이 중요합니다.'},
+        {'name': '파이널 판타지 7 리메이크', 'guide': 'ATB 게이지를 적극적으로 활용하고, 약점 속성에 맞는 마테리아를 세팅하세요.'},
     ],
-    '한식 요리': [
-        {'title': '비빔밥', 'desc': '다양한 나물과 고기, 고추장을 비벼 먹는 한국 대표 음식.'},
-        {'title': '불고기', 'desc': '얇게 썬 쇠고기를 간장 양념에 재운 후 볶은 요리입니다.'},
-        {'title': '김치찌개', 'desc': '김치, 돼지고기, 두부 등을 넣고 끓인 찌개입니다.'}
+    'FPS': [
+        {'name': '오버워치 2', 'guide': '팀 조합과 궁극기 운영이 중요합니다. 맵 지형을 활용하세요.'},
+        {'name': '콜 오브 듀티: 모던 워페어', 'guide': '소리 감지와 미니맵 활용을 통해 적 위치를 예측하세요.'},
+    ],
+    '액션': [
+        {'name': '세키로: 섀도우 다이 트와이스', 'guide': '패링(PARRY)이 전투의 핵심입니다. 타이밍 연습이 필요합니다.'}
     ]
 }
 
-for category, recipes in recipe_data.items():
-    st.header(category)
-    for recipe in recipes:
-        st.subheader(recipe['title'])
-        st.write(recipe['desc'])
-        st.markdown("---")
+# 장르 선택
+genre = st.selectbox("장르를 선택하세요", options=
